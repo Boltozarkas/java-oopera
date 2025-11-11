@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Show {
-    public String title;
-    public int duration;
-    Director director;
-    ArrayList<Actor> listOfActors;
+    protected String title;
+    protected int duration;
+    protected Director director;
+    protected ArrayList<Actor> listOfActors; // плоховато я ориентируюсь в модификаторах доступа ;((
 
     public Show(String title, int duration, Director director, ArrayList<Actor> listOfActors) {
         this.title = title;
@@ -52,7 +52,8 @@ public class Show {
     public void addActor(Actor actor) {
         System.out.println("Операция добавления актера в спектакль");
         int index = listOfActors.indexOf(actor);
-        if (index != -1) {
+        if (index != -1) { // так если сделать index > 0, то самый первый элемент в списке (index = 0) мы же не проверим
+            //только если index >= 0
             System.out.println("Актер " + actor + "  уже есть в списке спектакля.");
         } else {
             listOfActors.add(actor);
